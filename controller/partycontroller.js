@@ -1,3 +1,4 @@
+const participantModel = require("../models/participantModel");
 const partyModel= require("../models/partyModel");
  
 const loadoptions = async(req,res)=>
@@ -104,6 +105,19 @@ const add_participants = async(req,res)=>
      console.log(error.message);
   }
 }
+const loadContributors= async(req,res)=>
+{
+    try{
+             const partycode1=req.query.partycode;
+             const contributors= await participantModel.find({partycode:partycode1})
+             res.render('contributors',{person:contributors})
+             console.log(contributors);
+    }
+    catch(error)
+    {
+
+    }
+}
 
 
 
@@ -114,5 +128,6 @@ module.exports= {
     insertparty,
     loadparty,
     loadaddparticpants,
-    add_participants
+    add_participants,
+    loadContributors
 }
