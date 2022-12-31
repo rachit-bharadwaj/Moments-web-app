@@ -1,18 +1,281 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
 
-<div class="teachLog">
-    <form method="POST" class="teachForm">
-      <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Organizer Party-Code </label>
-        <input type="password" name="partycode1"  class="form-control" id="pass">
-        <br>
-        <input type="checkbox" style="width: 30px;" onclick="myFunction()">Show Password
-        <br>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" >
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+
+      /* ......................global.css....................... */
+      :root {
+  /* fonts */
+  --font-poppins: Poppins;
+
+  /* font sizes */
+  --font-size-base: 15px;
+
+  /* Colors */
+  --color-white: #fff;
+
+  /* border radiuses */
+  --br-md: 5px;
+}
+
+/* .......................index.css....................... */
+* {
+  font-family: "Noto Sans", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: whitesmoke;
+}
+    body {
+      margin: 0;
+      line-height: normal;
+      overflow: hidden;
+    }
+          /* ................Navbar.................... */
+          nav {
+        display: flex;
+        align-items: center;
+        padding: 30px;
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        justify-content: space-between;
+        backdrop-filter: opacity(0.1);
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        margin-left: 20px;
+      }
+
+      .logo a {
+        font-size: 2.2rem;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .menu {
+        display: flex;
+        align-items: center;
+        height: 100%;
+      }
+
+      .menu ul {
+        display: flex;
+        list-style: none;
+        align-items: center;
+        margin-right: 100px;
+      }
+
+      .menu ul li {
+        margin-left: 70px;
+        font-size: 20px;
+      }
+
+      .menu ul li a {
+        text-decoration: none;
+      }
+    .desktop-1-child {
+      position: absolute;
+      top: 257.51px;
+      left: 324.82px;
+      border-radius: 32px;
+      background: linear-gradient(
+        112.59deg,
+        rgba(58, 129, 191, 0.08),
+        rgba(65, 48, 90, 0.03)
+      );
+      backdrop-filter: blur(20px);
+      width: 597.37px;
+      height: 362.98px;
+    }
+    .desktop-1-inner,
+    .desktop-1-item {
+      position: absolute;
+      top: 199.31px;
+      left: 509.71px;
+      width: 737.29px;
+      height: 678.69px;
+    }
+    .desktop-1-inner {
+      top: 0;
+      left: 0;
+      width: 831.53px;
+      height: 704.18px;
+    }
+    .organizer-party-code,
+    .show-password {
+      position: absolute;
+      top: 333.91px;
+      left: 391.44px;
+      display: inline-block;
+      width: 256.94px;
+      height: 39.41px;
+    }
+    .show-password {
+      top: 464.92px;
+      left: 440.52px;
+    }
+    .button-child,
+    .rectangle-textarea {
+      position: absolute;
+      border-radius: var(--br-md);
+    }
+    .rectangle-textarea {
+      border: 0;
+      background-color: transparent;
+      top: 381.5px;
+      left: 391.44px;
+      background: linear-gradient(
+        90deg,
+        rgba(217, 217, 217, 0.61),
+        rgba(217, 217, 217, 0.48)
+      );
+      width: 250.72px;
+      height: 31.11px;
+    }
+    .button-child {
+      top: 0;
+      left: 0;
+      background: linear-gradient(
+        90deg,
+        rgba(251, 55, 255, 0.77),
+        rgba(39, 141, 192, 0.37)
+      );
+      width: 95.01px;
+      height: 30.77px;
+    }
+    .submit {
+      position: absolute;
+      top: 3.88px;
+      left: 18.81px;
+      font-size: 16px;
+      font-weight: 600;
+      font-family: var(--font-poppins);
+      color: var(--color-white);
+      text-align: left;
+      display: inline-block;
+      width: 60.53px;
+      height: 20.72px;
+    }
+    .button,
+    .rectangle-input {
+      cursor: pointer;
+      position: absolute;
+      left: 391.44px;
+    }
+    .button {
+      border: 0;
+      padding: 0;
+      background-color: transparent;
+      top: 524.08px;
+      width: 95.01px;
+      height: 30.77px;
+    }
+    .rectangle-input {
+      top: 464.92px;
+      background: linear-gradient(
+        90deg,
+        rgba(217, 217, 217, 0.65),
+        rgba(217, 217, 217, 0.7)
+      );
+      width: 36.04px;
+      height: 27.11px;
+    }
+    .desktop-1 {
+      position: absolute;
+      background-color: #20062e;
+      width: 100%;
+      height: 878px;
+      overflow: hidden;
+      text-align: left;
+      font-size: var(--font-size-base);
+      color: var(--color-white);
+      font-family: var(--font-poppins);
+      top: 0;
+    }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <div class="logo">
+        <a href="/">Moments</a>
       </div>
-      <a><button type="submit" class="btn btn-primary">Submit</button></a>
+
+      <div class="menu">
+        <ul>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/contact">Contact Us</a></li>
+        </ul>
+      </div>
+    </nav>
+    <form method="POST" class="teachForm">
+    <div class="desktop-1">
+      <img class="desktop-1-child" alt="" src="rectangle-1@2x.png" /><img
+        class="desktop-1-item"
+        alt=""
+        src="ellipse-2.svg"
+      /><img class="desktop-1-inner" alt="" src="ellipse-1.svg" />
+      <label for="exampleInputPassword1" class="organizer-party-code">Organizer Party Code </label>
+     
+      <!-- <input type="checkbox" style="width: 30px" onclick="myFunction()" />Show Password -->
+      <div class="show-password">Show Password</div>
+      <input type="password" name="partycode1" id="pass" class="rectangle-textarea" />
+      <button class="button">
+        <div class="button-child"></div>
+        <div class="submit">Submit</div></button
+      ><input class="rectangle-input" onclick="myFunction()" type="checkbox"/>
+    </div>
     </form>
-  </div>
-  <script>
-    function myFunction() {
+
+
+    <script>
+      function myFunction() {
+        var x = document.getElementById("pass");
+        if (x.type === "password") {
+          x.type = "text";
+        } else {
+          x.type = "password";
+        }
+      }
+    </script>
+  </body>
+</html>
+
+
+
+
+<!-- <div class="teachLog">
+  <form method="POST" class="teachForm">
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label"
+        >Organizer Party-Code
+      </label>
+      <input type="password" name="partycode1" class="form-control" id="pass" />
+      <br />
+      <input type="checkbox" style="width: 30px" onclick="myFunction()" />Show
+      Password
+      <br />
+    </div>
+    <a><button type="submit" class="btn btn-primary">Submit</button></a>
+  </form>
+</div>
+<script>
+  function myFunction() {
     var x = document.getElementById("pass");
     if (x.type === "password") {
       x.type = "text";
@@ -20,4 +283,4 @@
       x.type = "password";
     }
   }
-  </script>
+</script> -->

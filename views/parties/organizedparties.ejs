@@ -1,35 +1,423 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
 
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="./index.css" />
+    <title>Moments</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* ..............global.css................... */
+      :root {
+  /* fonts */
+  --font-inter: Inter;
+
+  /* font sizes */
+  --font-size-base: 16px;
+
+  /* Colors */
+  --color-white: #fff;
+  --color-black: #000;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: whitesmoke;
+  font-family: "Noto Sans", sans-serif;
+}
 
 
+  /* .................index.css..................... */
+  /* ................Navbar.................... */
+nav {
+  display: flex;
+  align-items: center;
+  padding: 30px;
+  position: fixed;
+  top: 0;
+  z-index: 60;
+  justify-content: space-between;
+}
 
+.logo {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
 
+.logo a {
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-decoration: none;
+}
 
-<h1 style="text-align: center; margin-top: 30px;">All Parties</h1>
-<div class="tableDiv">
-  <table class="table table-striped">
-    <tbody>
-        <%  student.forEach(element => { %>
-          <div class="card" style="width: 20 rem;">
-            <div class="card-body" style="justify-content: center;">
-              <h1 class="card-title"><%=element.name%></h1>
-              <h6 class="card-subtitle mb-2 text-muted">Venue:<%=element.venue%></h6>
-              <h6>Party Code: <%=element.partycode%></h6>
-              <p class="card-text">Date:  <%=element.date%></p>
-              <p class="card-text">Time:   <%=element.time%></p>
-              <p class="card-text">Budget: <%=element.budget%></p>
-               <a href="/teacher/delete/<%= element._id %> "><img style="margin: 5px 5px;" src="https://img.icons8.com/ios-glyphs/30/000000/filled-trash.png"/></a>
-               <a href="/add_participant?id=<%=element._id%>" class="btn btn-primary">Add Participant</a>
-               <a href="/contributors?partycode=<%=element.partycode%>">Contributors</a>
-              <!-- <a href="/teacher/showparticipant/<%=element._id%>" class="btn btn-primary" style="margin-left: 5px;">Show Participants</a>
-               <a href="/teacher/knowexpenses/<%=element.partycode%>" class="btn btn-primary">Contributors</a> -->
-            </div>
-          </div>
-        <%}) %>
-    </tbody>
-  </table>
-</div>
+.menu {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
 
+.menu ul {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  margin-right: 100px;
+}
 
+.menu ul li {
+  margin-left: 70px;
+  font-size: 20px;
+}
+
+.menu ul li a {
+  text-decoration: none;
+}
+    @keyframes roll-in-left {
+      0% {
+        transform: translateX(-50px) rotate(-540deg);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0) rotate(0deg);
+        opacity: 1;
+      }
+    }
+    body {
+      margin: 0;
+      line-height: normal;
+    }
+    .gradient-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: linear-gradient(90deg, #d9d9d9, rgba(204, 40, 94, 0.96), #7538aa);
+      width: 100%;
+      height: 1024px;
+    }
+    .desktop-1-child,
+    .glass-panal {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 500px;
+      height: 800pxpx;
+    }
+    .glass-panal {
+      top: 183.09px;
+      left: 150.43px;
+      border-radius: 30px;
+      background: linear-gradient(
+        89.18deg,
+        rgba(255, 255, 255, 0.56),
+        rgba(255, 249, 249, 0.16)
+      );
+      backdrop-filter: blur(50px);
+      border: 2px solid rgba(0, 0, 0, 0.4);
+      box-sizing: border-box;
+      width: 1101.14px;
+      height: 500px;
+      opacity: 0.6;
+    }
+    .saly-1-icon {
+      position: absolute;
+      top: 392px;
+      left: 769px;
+      width: 633px;
+      height: 540px;
+      object-fit: cover;
+    }
+    .desktop-1-item {
+      left: 266px;
+      background: linear-gradient(
+        90deg,
+        rgba(146, 54, 147, 0.7),
+        rgba(181, 51, 116, 0.48)
+      );
+      opacity: 0;
+    }
+    .desktop-1-item.animate {
+      animation: 1s ease 0s 1 normal forwards roll-in-left;
+    }
+    .desktop-1-inner,
+    .desktop-1-item,
+    .rectangle-button {
+      cursor: pointer;
+      border: 0;
+      padding: 0;
+      background-color: transparent;
+      position: absolute;
+      top: 555.64px;
+      width: 186.64px;
+      height: 40.18px;
+    }
+    .desktop-1-inner {
+      left: 472.43px;
+      background: linear-gradient(
+        90deg,
+        rgba(146, 54, 147, 0.58),
+        rgba(181, 51, 116, 0.7)
+      );
+    }
+    .rectangle-button {
+      left: 678.87px;
+      background: linear-gradient(
+        90deg,
+        rgba(146, 54, 147, 0.7),
+        rgba(181, 51, 116, 0.7)
+      );
+    }
+    .party-name {
+      position: absolute;
+      top: 213.93px;
+      left: 565.75px;
+      font-size: 40px;
+      display: inline-block;
+      color: var(--color-white);
+      width: 270.5px;
+      height: 51.4px;
+    }
+    .venue-pc {
+      margin-block-start: 0;
+      margin-block-end: 0;
+    }
+    .budget-5000 {
+      margin: 0;
+    }
+    .venue-pc-party-code-moment {
+      position: absolute;
+      top: 342.95px;
+      left: 206.1px;
+      color: var(--color-white);
+      display: inline-block;
+      width: 337.85px;
+      height: 36.52px;
+    }
+    .vector-icon {
+      position: absolute;
+      height: 2.68%;
+      width: 1.56%;
+      top: 60.43%;
+      right: 83.74%;
+      bottom: 36.89%;
+      left: 14.7%;
+      max-width: 100%;
+      overflow: hidden;
+      max-height: 100%;
+    }
+    .add-participant {
+      top: 564.29px;
+      left: 295.4px;
+      width: 127.83px;
+      height: 21.58px;
+    }
+    .add-participant,
+    .countributors,
+    .show-participants {
+      position: absolute;
+      display: inline-block;
+    }
+    .show-participants {
+      top: 564.29px;
+      left: 503.03px;
+      width: 151.3px;
+      height: 35.74px;
+    }
+    .countributors {
+      top: 563.23px;
+      left: 720px;
+      width: 127.83px;
+      height: 21.58px;
+    }
+    .desktop-1 {
+      position: relative;
+      background-color: var(--color-white);
+      width: 1402px;
+      height: 932px;
+      flex-shrink: 0;
+      overflow: hidden;
+      display: flex;
+      width: 100%;
+    }
+    .background {
+      position: absolute;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      text-align: left;
+      font-size: var(--font-size-base);
+      color: var(--color-black);
+      font-family: var(--font-inter);
+      top: 0;
+    }
+    .parties-con{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--font-size-base);
+      color: var(--color-black);
+      font-family: var(--font-inter);
+      z-index: 55;
+      position: absolute;
+      margin: 200px 0 0 550px;
+    }
+    .parties-con h1{
+      font-size: 50px;
+      margin: 0;
+    }
+    .card-title{
+      font-size: 30px;
+      margin-top: 50px;
+    }
+    .mb-2{
+      margin-bottom: 20px;
+    }
+    .bl{
+      display: flex;
+      align-items: center;
+    }
+
+.btn-primary{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+</style>    
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <div class="logo">
+        <a href="/">Moments</a>
+      </div>
+
+      <div class="menu">
+        <ul>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/contact">Contact Us</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="background">
+      <div class="desktop-1">
+        <div class="gradient-background"></div>
+        <img class="desktop-1-child" alt="" src="ellipse-1.svg" />
+        <div class="glass-panal"></div>
+        <img class="saly-1-icon" alt="" src="saly1@2x.png" />
+        <!-- <button
+          class="desktop-1-item"
+          autofocus
+          data-animate-on-scroll
+        ></button> -->
+        <!-- <button class="desktop-1-inner"></button
+        ><button class="rectangle-button"></button
+        > -->
+        <!-- <b class="party-name">PARTY NAME</b>
+        <div class="venue-pc-party-code-moment">
+          <p class="venue-pc">Venue : PC</p>
+          <p class="venue-pc">&nbsp;</p>
+          <p class="venue-pc">Party Code : Moments</p>
+          <p class="venue-pc">&nbsp;</p>
+          <p class="venue-pc">Date : 20/01/23</p>
+          <p class="venue-pc">&nbsp;</p>
+          <p class="venue-pc">Time:19:00</p>
+          <p class="venue-pc">&nbsp;</p>
+          <p class="budget-5000">Budget : 5000</p> -->
+        </div>
+        <!-- <img class="vector-icon" alt="" src="vector.svg" />
+        <div class="add-participant">Add Participant</div>
+        <div class="show-participants">Show Participants</div>
+        <div class="countributors">Countributors</div> -->
+      </div>
+    </div>
+
+    <div class="parties-con">
   
+      <h1 style="text-align: center; margin-top: 30px">All Parties</h1>
+      <div class="tableDiv">
+        <table class="table table-striped">
+          <tbody>
+            <% student.forEach(element => { %>
+            <div class="card" style="width: 20 rem">
+              <div class="card-body" style="justify-content: center">
+                <p class="card-title mb-2"><%=element.name%></p>
+                <h6 class="card-subtitle mb-2 text-muted">
+                  Venue:<%=element.venue%>
+                </h6>
+                <h6 class="mb-2">Party Code: <%=element.partycode%></h6>
+                <p class="card-text mb-2">Date: <%=element.date%></p>
+                <p class="card-text mb-2">Time: <%=element.time%></p>
+                <p class="card-text mb-2">Budget: <%=element.budget%></p>
+                <div class="bl">
+
+                  <a href="/teacher/delete/<%= element._id %> "
+                    ><img
+                      style="margin: 5px 5px"
+                      src="https://img.icons8.com/ios-glyphs/30/000000/filled-trash.png"
+                  /></a>
+                  <a href="/add_participant?id=<%=element._id%>" class="btn btn-primary"
+                    >Add Participant</a
+                  >
+                  <a href="/contributors?partycode=<%=element.partycode%>"
+                    >Contributors</a
+                  >
+                </div>
+                <!-- <a href="/teacher/showparticipant/<%=element._id%>" class="btn btn-primary" style="margin-left: 5px;">Show Participants</a>
+                     <a href="/teacher/knowexpenses/<%=element.partycode%>" class="btn btn-primary">Contributors</a> -->
+              </div>
+            </div>
+            <%}) %>
+          </tbody>
+        </table>
+      </div>
+      </div>
+
+    <script>
+      var scrollAnimElements = document.querySelectorAll("[data-animate-on-scroll]");
+      var observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting || entry.intersectionRatio > 0) {
+              const targetElement = entry.target;
+              targetElement.classList.add("animate");
+              observer.unobserve(targetElement);
+            }
+          }
+        },
+        {
+          threshold: 0.15,
+        }
+      );
+      
+      for (let i = 0; i < scrollAnimElements.length; i++) {
+        observer.observe(scrollAnimElements[i]);
+      }
+      </script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+<!-- .
+.
+. 
+. 
+. 
+.  -->

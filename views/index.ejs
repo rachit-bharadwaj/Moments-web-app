@@ -40,6 +40,7 @@ nav {
   position: sticky;
   top: 0;
   z-index: 50;
+  justify-content: space-between;
 }
 
 .logo {
@@ -63,8 +64,8 @@ nav {
 .menu ul {
   display: flex;
   list-style: none;
-  margin-left: 500px;
   align-items: center;
+  margin-right: 100px;
 }
 
 .menu ul li {
@@ -115,7 +116,6 @@ main {
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  color: black;
 }
 
 .btn1 {
@@ -139,6 +139,10 @@ main {
 
   margin-right: 50px;
 }
+
+.btn2{
+  color: black;
+}
     </style>
   </head>
   <body>
@@ -150,11 +154,8 @@ main {
 
       <div class="menu">
         <ul>
-          <li><a href="/">Platform</a></li>
-          <li><a href="/">Services</a></li>
-          <li><a href="/">Events</a></li>
-          <li><a href="/">Offer</a></li>
-          <li><a href="/">Contact</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/contact">Contact Us</a></li>
         </ul>
       </div>
     </nav>
@@ -175,7 +176,7 @@ main {
       </div>
         <div class="login-btn">
                 <a href="/options">
-                    <button class="btn-1">
+                    <button class="btn1">
                         Organizer
                     </button>
             <a href="/participantlogin">
